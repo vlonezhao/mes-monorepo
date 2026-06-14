@@ -1,39 +1,45 @@
-Product
-（500ml保温杯）
-
-↓ 定义
-
-BOM
-（杯身×1、杯盖×1、密封圈×1、包装盒×1）
-
-↓ 定义
+Role
+ |
+User
 
 Route
-（组装 → 检测 → 包装）
+ |
+Product
+ |
+BOM
+ |
+Material
 
-↓ 被引用
-
+Product
+ |
 WorkOrder
-（生产1000个保温杯）
-
-↓ 自动拆分
+ |
+OperationTask
+ |
+Report
 
 OperationTask
-（组装1000个）
-（检测1000个）
-（包装1000个）
-
-↓ 执行产生
-
-Report
-（张三完成100个，良品98，不良2）
-
-↓ 检验产生
-
+ |
 QualityCheck
-（2个不良品，原因：密封圈破损）
 
-↓ 完工产生
-
+WorkOrder
+ |
 Batch
-（20260608-B001）
+
+Role 1 -> User N
+
+Route 1 -> Product N
+
+Product 1 -> BOM 1
+
+BOM 1 -> Material N
+
+Product 1 -> WorkOrder N
+
+WorkOrder 1 -> OperationTask N
+
+OperationTask 1 -> Report N
+
+OperationTask 1 -> QualityCheck N
+
+WorkOrder 1 -> Batch N
